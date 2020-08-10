@@ -1,0 +1,5 @@
+Source File,Dest File,Processor Type,Content Type,Source File Size,Dest File Size,Build Seconds
+"C:/Users/coolg/RiderProjects/TRex/TRex/Content/Cactus.png","C:/Users/coolg/RiderProjects/TRex/TRex/Content/bin/DesktopGL/Content/Cactus.xnb","TextureProcessor","Texture2DContent",327,5085,0.0795053
+"C:/Users/coolg/RiderProjects/TRex/TRex/Content/Dinasaur.png","C:/Users/coolg/RiderProjects/TRex/TRex/Content/bin/DesktopGL/Content/Player.xnb","TextureProcessor","Texture2DContent",382,8357,0.0848238
+"C:/Users/coolg/RiderProjects/TRex/TRex/Content/Font.spritefont","C:/Users/coolg/RiderProjects/TRex/TRex/Content/bin/DesktopGL/Content/Font.xnb","FontDescriptionProcessor","SpriteFontContent",2014,37905,0.1805175
+"C:/Users/coolg/RiderProjects/TRex/TRex/Content/Ground.png","C:/Users/coolg/RiderProjects/TRex/TRex/Content/bin/DesktopGL/Content/Ground.xnb","TextureProcessor","Texture2DContent",2502,28533,0.0787893

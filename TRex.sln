@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.30330.147
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TRex", "TRex\TRex.csproj", "{1472A83C-23AB-4568-BA36-A1F995973F37}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{1472A83C-23AB-4568-BA36-A1F995973F37}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1472A83C-23AB-4568-BA36-A1F995973F37}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1472A83C-23AB-4568-BA36-A1F995973F37}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1472A83C-23AB-4568-BA36-A1F995973F37}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {435901C4-D082-49A5-8DC5-8AF4BDBCFD47}
+	EndGlobalSection
+EndGlobal
