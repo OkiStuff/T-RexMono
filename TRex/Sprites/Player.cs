@@ -11,80 +11,38 @@ namespace TRex.Sprites
     public class Player : Sprite
     {
         public int Score;
-        
         public bool HasDied = false;
-        //public float Gravity = .04f;
-        public bool HasJumped = false;
-
-        public Player(Texture2D texture)
-            : base(texture)
-        {
-            
-        }
-
+        
+        public Player(Texture2D texture) : base(texture) {}
+        
         public override void Update(GameTime gameTime, List<Sprite> sprites)
         {
+            //Move();
+            if (Input.IsKeyPressed(Keys.Space))
+            {
+                Velocity.Y = -100f;//_texture.Height * (Scale) + -100;
+                if (Position.Y >= Game1.ScreenHeight * .5f) {}
+                else Velocity.Y = 100f;
+            }
             
+            Position += Velocity;
             
-            Move();
-
             foreach (var sprite in sprites)
             {
-                if (sprite is Player)
-                    continue;
-
-                if (sprite.Rectangle.Intersects(this.Rectangle))
+                if (sprite is Player) continue;
+                if (sprite.Rectangle.Intersects(this.Rectangle)) this.HasDied = true;
+                if (Game1.GlobalTimer >= 0.1f)
                 {
-                    this.HasDied = true;
-                }
-
-                if (Game1.GlobalTimer >= 0.01f)
-                {
-                    if (Game1.HighScore < Score)
-                    {
-                        Game1.HighScore++;
-                    }
+                    if (Game1.HighScore < Score) Game1.HighScore++;
                     Game1.GlobalTimer = 0f;
                     Score++;
                 }
             }
-
-            Position += Velocity;
             
-            
-            
-            // Keep Sprite On Screen
             Position.X = MathHelper.Clamp(Position.X, 0, Game1.ScreenWidth - Rectangle.Width);
             Velocity = Vector2.Zero;
         }
 
-        private void Move()
-        {
-
-
-            if (Input.IsKeyPressed(Keys.Space))
-            {
-                Velocity.Y = -_texture.Height * (Scale) + -100;
-                HasJumped = true;
-            }
-//
-            if (HasJumped)
-            {
-                
-                if (Position.Y >= Game1.ScreenHeight * .5f)
-                {
-                    
-                }
-                
-                // gravity crap
-                else
-                {
-                    //float i = 25f;
-                    Velocity.Y = 5f; //0.15f * i;
-                }
-            }
-
-        }
-        
+        private void Move() {}
     }
 }
