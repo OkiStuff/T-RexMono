@@ -11,38 +11,58 @@ namespace TRex.Sprites
     public class Player : Sprite
     {
         public int Score;
+        
         public bool HasDied = false;
-        
+        //public float Gravity = .04f;
+        public bool HasJumped = false;
+
         public Player(Texture2D texture) : base(texture) {}
-        
+
         public override void Update(GameTime gameTime, List<Sprite> sprites)
         {
-            //Move();
-            if (Input.IsKeyPressed(Keys.Space))
-            {
-                Velocity.Y = -100f;//_texture.Height * (Scale) + -100;
-                if (Position.Y >= Game1.ScreenHeight * .5f) {}
-                else Velocity.Y = 100f;
-            }
-            
-            Position += Velocity;
-            
+            Move();
             foreach (var sprite in sprites)
             {
-                if (sprite is Player) continue;
+                if (sprite is Player)
+                    continue;
+
                 if (sprite.Rectangle.Intersects(this.Rectangle)) this.HasDied = true;
-                if (Game1.GlobalTimer >= 0.1f)
+                
+                if (Game1.GlobalTimer >= 0.01f)
                 {
                     if (Game1.HighScore < Score) Game1.HighScore++;
                     Game1.GlobalTimer = 0f;
                     Score++;
                 }
             }
-            
+
+            Position += Velocity;
+            // Keep Sprite On Screen
             Position.X = MathHelper.Clamp(Position.X, 0, Game1.ScreenWidth - Rectangle.Width);
             Velocity = Vector2.Zero;
         }
 
-        private void Move() {}
+        private void Move()
+        {
+
+
+            if (Input.IsKeyPressed(Keys.Space))
+            {
+                Velocity.Y = -_texture.Height * (Scale) + -200;
+                HasJumped = true;
+            }
+
+            if (HasJumped)
+            {
+                
+                if (Position.Y >= Game1.ScreenHeight * .5f) { }
+                
+                // gravity crap
+                else {Velocity.Y = 5f;}
+                
+            }
+
+        }
+        
     }
 }

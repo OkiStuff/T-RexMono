@@ -52,6 +52,7 @@ namespace TRex
             
             CurSpeed = 5f;
             Start = true;
+            IsMouseVisible = true;
         }
 
         
@@ -78,7 +79,8 @@ namespace TRex
         {
             //var cactusTexture = Content.Load<Texture2D>("Player");
             var playerTexture = Content.Load<Texture2D>("Player");
-
+            CurSpeed = 5f;
+            
             _sprites = new List<Sprite>()
             {
                 new Player(playerTexture)
@@ -88,13 +90,13 @@ namespace TRex
                     Speed = CurSpeed,
                 },
                 
-                //new Cactus(playerTexture)
-                //{
-                //    
-                //    Position = new Vector2(1000, Game1.ScreenHeight * .5f),
-                //    Color = Color.Red,
-                //    Speed = 2f,
-                //}
+                new Cactus(Content.Load<Texture2D>("Cactus"))
+                {
+                    
+                    Position = new Vector2(1000, Game1.ScreenHeight * .5f),
+                    Color = Color.Red,
+                    Speed = 5f,
+                }
             };
             
             
