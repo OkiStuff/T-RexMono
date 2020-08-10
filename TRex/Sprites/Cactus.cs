@@ -21,7 +21,7 @@ namespace TRex.Sprites
         public override void Update(GameTime gameTime, List<Sprite> sprites)
         {
             if (Position.X > -Game1.ScreenWidth)
-            Position.X -= Game1.CurSpeed;
+                Position.X -= Game1.CurSpeed;
         }
     }
 }
