@@ -64,10 +64,10 @@ namespace TRex.Sprites
 
             if (Input.IsKeyPressed(Keys.Space))
             {
-                Velocity.Y = -400f;
+                Velocity.Y = -_texture.Height * (Scale) + -100;
                 HasJumped = true;
             }
-
+//
             if (HasJumped)
             {
                 
@@ -79,11 +79,10 @@ namespace TRex.Sprites
                 // gravity crap
                 else
                 {
-                    float i = 25f;
-                    Velocity.Y = 15f; //0.15f * i;
+                    //float i = 25f;
+                    Velocity.Y = 5f; //0.15f * i;
                 }
             }
-                
 
         }
         

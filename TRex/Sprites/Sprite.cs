@@ -12,6 +12,7 @@ namespace TRex.Sprites
         public Vector2 Position;
         public Vector2 Velocity;
         public float Speed;
+        public float Scale = 2f;
         public bool IsRemoved = false;
         
 
