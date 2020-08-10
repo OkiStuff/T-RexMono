@@ -31,8 +31,11 @@ namespace TRex
 
         public static float CurSpeed;
         public static int HighScore;
-
-        public static bool Start;
+        
+        
+        public static Color TextColor = Color.White;
+        public static int Goal = 500;
+        public static float TextTimer;
         
         
         public Game1()
@@ -51,7 +54,6 @@ namespace TRex
             ScreenHeight = graphics.PreferredBackBufferHeight;
             
             CurSpeed = 5f;
-            Start = true;
             IsMouseVisible = true;
         }
 
@@ -86,17 +88,17 @@ namespace TRex
                 new Player(playerTexture)
                 {
                     Position = new Vector2(100,Game1.ScreenHeight * .5f),
-                    Color = Color.White,
+                    Color = TextColor,
                     Speed = CurSpeed,
                 },
                 
-                new Cactus(Content.Load<Texture2D>("Cactus"))
-                {
-                    
-                    Position = new Vector2(1000, Game1.ScreenHeight * .5f),
-                    Color = Color.Red,
-                    Speed = 5f,
-                }
+                //new Cactus(Content.Load<Texture2D>("Cactus"))
+                //{
+                //    
+                //    Position = new Vector2(1000, Game1.ScreenHeight * .5f),
+                //    Color = Color.Red,
+                //    Speed = 5f,
+                //}
             };
             
             
@@ -115,13 +117,16 @@ namespace TRex
             
             Input.UpdateState();   
 
+            // timer
             _timer += (float) gameTime.ElapsedGameTime.TotalSeconds;
             _timerSpeed += (float) gameTime.ElapsedGameTime.TotalSeconds;
             GlobalTimer += (float) gameTime.ElapsedGameTime.TotalSeconds;
+            TextTimer += (float) gameTime.ElapsedGameTime.TotalSeconds;
             
             foreach(var sprite in _sprites)
                 sprite.Update(gameTime, _sprites);
 
+            
             if (_timer >= Random.Next(0,150))
             {
                 _timer = 0;
@@ -142,6 +147,7 @@ namespace TRex
             PostUpdate();
             
             base.Update(gameTime);
+            
             
             
         }
@@ -191,9 +197,9 @@ namespace TRex
                if (sprite is Player)
                {
                    spriteBatch.DrawString(_font, string.Format("Score: {0}", ((Player)sprite).Score), 
-                       new Vector2(1020, fontY += 20), Color.White);
+                       new Vector2(1020, fontY += 20), TextColor);
                    spriteBatch.DrawString(_font, string.Format("High Score: {0}", HighScore), 
-                       new Vector2(1020, fontY += 20), Color.White);
+                       new Vector2(1020, fontY += 20), TextColor);
                }
                 
            }

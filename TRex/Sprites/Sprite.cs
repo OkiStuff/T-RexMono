@@ -38,7 +38,7 @@ namespace TRex.Sprites
 
         public virtual void Draw(SpriteBatch spriteBatch)
         {
-            spriteBatch.Draw(_texture, Position, null, Color.White, 0f, Vector2.Zero, 2f, SpriteEffects.None, 0f);
+            spriteBatch.Draw(_texture, Position, null, Game1.TextColor, 0f, Vector2.Zero, 2f, SpriteEffects.None, 0f);
         }
     }
 }

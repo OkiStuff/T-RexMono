@@ -34,6 +34,18 @@ namespace TRex.Sprites
                     Game1.GlobalTimer = 0f;
                     Score++;
                 }
+                
+                if (Score >= Game1.Goal)
+                {
+                    Game1.TextColor = Color.Gold;
+                    Game1.Goal += 500;
+
+                    if (Game1.TextTimer >= 1f)
+                    {
+                        Game1.TextTimer = 0f;
+                        Game1.TextColor = Color.White;
+                    }
+                }
             }
 
             Position += Velocity;
