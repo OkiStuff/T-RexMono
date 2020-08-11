@@ -23,6 +23,7 @@ namespace TRex
         public static int ScreenWidth;
 
         private SpriteFont _font;
+        private SpriteFont _bigFont;
         private Texture2D Ground;
         
         private List<Sprite> _sprites;
@@ -36,7 +37,7 @@ namespace TRex
         private bool _hasStarted = false;
         
         public static Color TextColor = Color.White;
-        public static SoundEffectInstance JumpSound, DeathSound, RestartSound, ScoreBonusSound, ButtonHover;
+        public static SoundEffectInstance JumpSound, DeathSound, RestartSound, ScoreBonusSound, ButtonHover, BGMusic;
         
         
         
@@ -45,7 +46,7 @@ namespace TRex
         {
             graphics = new GraphicsDeviceManager(this);
             Content.RootDirectory = "Content";
-            Window.Title = "T-Rex Game by Epic Boi (Made in around a day using Monogame)";
+            
             Window.AllowAltF4 = true;
 
             graphics.PreferredBackBufferHeight = 720;
@@ -58,12 +59,13 @@ namespace TRex
             
             CurSpeed = 5f;
             IsMouseVisible = true;
+            
         }
 
         protected override void Initialize()
-        {
-            // TODO: Add your initialization logic here
-
+        {  
+            //Mouse.SetCursor(MouseCursor.FromTexture2D(Content.Load<Texture2D>("Mouse"), 0, 0));
+            Window.Title = "Google Dinosaur Game By Epic Boi";
             base.Initialize();
         }
 
@@ -73,6 +75,8 @@ namespace TRex
             // Create a new SpriteBatch, which can be used to draw textures.
             spriteBatch = new SpriteBatch(GraphicsDevice);
 
+            _bigFont = Content.Load<SpriteFont>("big");
+            
             _font = Content.Load<SpriteFont>("Font");
             Ground = Content.Load<Texture2D>("Ground");
             
@@ -90,7 +94,13 @@ namespace TRex
             
             ButtonHover = Content.Load<SoundEffect>("Sounds/ButtonHover").CreateInstance();
             ButtonHover.Volume = .5f;
+
+            BGMusic = Content.Load<SoundEffect>("Sounds/Soft_Piano").CreateInstance();
+            BGMusic.Volume = .1f;
+            BGMusic.IsLooped = true;
             
+            Sounds.PlaySound(SoundTypes.BGMusic);
+
             Restart();
         }
 
@@ -133,21 +143,27 @@ namespace TRex
        
         protected override void Update(GameTime gameTime)
         {
-            if (Keyboard.GetState().IsKeyDown(Keys.Space) && !_hasStarted)
+            Input.UpdateState();
+            
+            // timer
+            _timer += (float) gameTime.ElapsedGameTime.TotalSeconds;
+            _timerSpeed += (float) gameTime.ElapsedGameTime.TotalSeconds;
+            GlobalTimer += (float) gameTime.ElapsedGameTime.TotalSeconds;
+            
+            if (Input.IsKeyReleased(Keys.Space) && !_hasStarted && _timer >= 0.25f)
             {
+                _timer = 0f;
                 _hasStarted = true;
                 Sounds.PlaySound(SoundTypes.Restart);
+                BGMusic.Volume += .2f;
             }
 
             if (!_hasStarted)
                 return;
             
-            Input.UpdateState();   
+            
 
-            // timer
-            _timer += (float) gameTime.ElapsedGameTime.TotalSeconds;
-            _timerSpeed += (float) gameTime.ElapsedGameTime.TotalSeconds;
-            GlobalTimer += (float) gameTime.ElapsedGameTime.TotalSeconds;
+            
 
             foreach(var sprite in _sprites)
                 sprite.Update(gameTime, _sprites);
@@ -198,6 +214,14 @@ namespace TRex
                         Sounds.PlaySound(SoundTypes.Death);
                         if (HighScore < ((Player)sprite).Score)
                             HighScore = ((Player)sprite).Score;
+
+                        // reset timer
+                        _timer = 0f;
+                        _timerSpeed = 0f;
+                        GlobalTimer = 0f;
+                        
+                        BGMusic.Volume = .1f;
+                        _hasStarted = false;
                         Restart();
                     }
                 }
@@ -218,10 +242,10 @@ namespace TRex
            
            var fontY = 10;
            var i = 0;
-           
+
            if (!_hasStarted)
-               spriteBatch.DrawString(_font, string.Format("Press space to start!"), 
-                   new Vector2(Game1.ScreenHeight * .5f + 120, fontY + 30), TextColor);
+               spriteBatch.DrawString(_bigFont, string.Format("Press space to start!"),
+                   new Vector2(Game1.ScreenHeight * .5f, Game1.ScreenHeight * .5f - 100), TextColor);//,0f, Vector2.Zero, 2f, SpriteEffects.None, 0f);
 
            foreach (var sprite in _sprites)
            {

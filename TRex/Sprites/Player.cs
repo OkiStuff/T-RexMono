@@ -28,7 +28,7 @@ namespace TRex.Sprites
 
                 if (sprite.Rectangle.Intersects(this.Rectangle)) this.HasDied = true;
                 
-                if (Game1.GlobalTimer >= 0.01f)
+                if (Game1.GlobalTimer >= 0.15f)
                 {
                     if (Game1.HighScore < Score) Game1.HighScore++;
                     Game1.GlobalTimer = 0f;

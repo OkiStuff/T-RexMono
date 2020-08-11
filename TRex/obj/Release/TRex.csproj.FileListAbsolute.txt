@@ -26,3 +26,6 @@ C:\Users\coolg\RiderProjects\TRex\TRex\bin\DesktopGL\AnyCPU\Release\Content\Soun
 C:\Users\coolg\RiderProjects\TRex\TRex\bin\DesktopGL\AnyCPU\Release\Content\Sounds\Jump.xnb
 C:\Users\coolg\RiderProjects\TRex\TRex\bin\DesktopGL\AnyCPU\Release\Content\Sounds\Restart.xnb
 C:\Users\coolg\RiderProjects\TRex\TRex\bin\DesktopGL\AnyCPU\Release\Content\Sounds\ScoreBonus.xnb
+C:\Users\coolg\RiderProjects\TRex\TRex\bin\DesktopGL\AnyCPU\Release\Content\big.xnb
+C:\Users\coolg\RiderProjects\TRex\TRex\bin\DesktopGL\AnyCPU\Release\Content\Mouse.xnb
+C:\Users\coolg\RiderProjects\TRex\TRex\bin\DesktopGL\AnyCPU\Release\Content\Sounds\Soft_Piano.xnb

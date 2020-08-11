@@ -7,6 +7,7 @@
         Restart,
         ScoreBonus,
         ButtonHover,
+        BGMusic,
     }
 
     public class Sounds
@@ -32,6 +33,10 @@
                 case SoundTypes.ButtonHover:
                     Game1.ButtonHover.Play();
                     break;
+                case SoundTypes.BGMusic:
+                    Game1.BGMusic.Play();
+                    break;
+                    
             }
         }
     }
