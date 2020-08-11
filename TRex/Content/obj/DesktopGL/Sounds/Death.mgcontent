@@ -3,7 +3,7 @@
   <SourceFile>C:/Users/coolg/RiderProjects/TRex/TRex/Content/Sounds/Death.wav</SourceFile>
   <SourceTime>2020-08-10T17:23:58.9933058-04:00</SourceTime>
   <DestFile>C:/Users/coolg/RiderProjects/TRex/TRex/Content/bin/DesktopGL/Sounds/Death.xnb</DestFile>
-  <DestTime>2020-08-11T14:55:43.803106-04:00</DestTime>
+  <DestTime>2020-08-11T15:55:39.4066107-04:00</DestTime>
   <Importer>WavImporter</Importer>
   <ImporterTime>2018-12-08T11:35:54-05:00</ImporterTime>
   <Processor>SoundEffectProcessor</Processor>

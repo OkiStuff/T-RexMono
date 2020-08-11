@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Xml;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Audio;
 using Microsoft.Xna.Framework.Graphics;
@@ -38,7 +39,8 @@ namespace TRex
         
         public static Color TextColor = Color.White;
         public static SoundEffectInstance JumpSound, DeathSound, RestartSound, ScoreBonusSound, ButtonHover, BGMusic;
-        
+        private int WidthSettings;
+        private int HeightSettings;
         
         
         
@@ -48,30 +50,42 @@ namespace TRex
             Content.RootDirectory = "Content";
             
             Window.AllowAltF4 = true;
+            
+            Random = new Random();
+
+            // defualt
 
             graphics.PreferredBackBufferHeight = 720;
             graphics.PreferredBackBufferWidth = 1280;
             
-            Random = new Random();
-
-            ScreenWidth = graphics.PreferredBackBufferWidth;
             ScreenHeight = graphics.PreferredBackBufferHeight;
+            ScreenWidth = graphics.PreferredBackBufferWidth;
             
             CurSpeed = 5f;
             IsMouseVisible = true;
             
+            
+
         }
 
         protected override void Initialize()
-        {  
+        {
+            
+            HighScore = 0;
             //Mouse.SetCursor(MouseCursor.FromTexture2D(Content.Load<Texture2D>("Mouse"), 0, 0));
-            Window.Title = "Google Dinosaur Game By Epic Boi";
+            UpdateWindowTitle();
             base.Initialize();
         }
-
         
+        private void UpdateWindowTitle()
+        {
+            Window.Title = string.Format("Google Dinosaur Game By Epic Boi -- (Version V0.2.0) -- High Score: {0}", HighScore);
+        }
+
+
         protected override void LoadContent()
         {
+
             // Create a new SpriteBatch, which can be used to draw textures.
             spriteBatch = new SpriteBatch(GraphicsDevice);
 
@@ -213,7 +227,10 @@ namespace TRex
                     {
                         Sounds.PlaySound(SoundTypes.Death);
                         if (HighScore < ((Player)sprite).Score)
+                        {
                             HighScore = ((Player)sprite).Score;
+                            UpdateWindowTitle();
+                        }
 
                         // reset timer
                         _timer = 0f;
@@ -244,7 +261,7 @@ namespace TRex
            var i = 0;
 
            if (!_hasStarted)
-               spriteBatch.DrawString(_bigFont, string.Format("Press space to start!"),
+               spriteBatch.DrawString(_bigFont, string.Format("Jump to start!"),
                    new Vector2(Game1.ScreenHeight * .5f, Game1.ScreenHeight * .5f - 100), TextColor);//,0f, Vector2.Zero, 2f, SpriteEffects.None, 0f);
 
            foreach (var sprite in _sprites)
@@ -265,3 +282,84 @@ namespace TRex
         }
     }
 }
+
+// removed functions
+ /*
+        private int GetSettingsHeight()
+        {
+            using (XmlReader reader = XmlReader.Create(@"Data/Settings.xml"))
+            {
+                while (reader.Read())
+                {
+                    if (reader.IsStartElement())
+                    {
+                        switch (reader.Name.ToString())
+                        {
+                            case "Height":
+                                HeightSettings = int.Parse(reader.ReadString());
+                                break;
+                        }
+                    }
+                }
+
+                return HeightSettings;
+            }
+        }
+        private int GetSettingsWidth()
+        {
+
+
+            using (XmlReader reader = XmlReader.Create(@"Data/Settings.xml"))
+            {
+                while (reader.Read())
+                {
+                    if (reader.IsStartElement())
+                    {
+                        switch (reader.Name.ToString())
+                        {
+                            case "Width":
+                                WidthSettings = int.Parse(reader.ReadString());
+                                break;
+                        }
+                    }
+                }
+
+                return WidthSettings;
+            }
+        }
+
+        
+        private void ReadFromSettings()
+        {
+            using (XmlReader reader = XmlReader.Create(@"Data/Settings.xml"))
+            {
+                while (reader.Read())
+                {
+                    if (reader.IsStartElement())
+                    {
+                        switch (reader.Name.ToString())
+                        {
+                            case "Height":
+                                graphics.PreferredBackBufferHeight = int.Parse(reader.ReadString());
+                                Console.WriteLine(graphics.PreferredBackBufferHeight);
+                                break;
+                            case "Width":
+                                graphics.PreferredBackBufferWidth = int.Parse(reader.ReadString());
+                                Console.WriteLine(graphics.PreferredBackBufferWidth);
+                                break;
+                            case "GraphicsType":
+                                if (reader.ReadString() == "Normal")
+                                    Window.IsBorderless = false;
+                                else if (reader.ReadString() == "Borderless")
+                                    Window.IsBorderless = true;
+                                break;
+                        }
+                    }
+                }
+            }
+            
+            
+            ScreenWidth = graphics.PreferredBackBufferWidth;
+            ScreenHeight = graphics.PreferredBackBufferHeight;
+        }
+        */

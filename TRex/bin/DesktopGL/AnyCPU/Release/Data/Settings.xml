@@ -1,0 +1,16 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+
+<Settings>
+
+  
+
+  <Height>500</Height>
+  <Width>800</Width>
+
+  
+  
+  <!--Types: Normal, Borderless-->
+  <GraphicsType>Normal</GraphicsType>
+
+</Settings>
+
