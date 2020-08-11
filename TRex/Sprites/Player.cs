@@ -8,12 +8,12 @@ using TRex.Models;
 
 namespace TRex.Sprites
 {
-    public class Player : Sprite
+        public class Player : Sprite
     {
         public int Score;
         
         public bool HasDied = false;
-        //public float Gravity = .04f;
+        public const float Gravity = .04f;
         public bool HasJumped = false;
 
         public Player(Texture2D texture) : base(texture) {}
@@ -35,32 +35,20 @@ namespace TRex.Sprites
                     Score++;
                 }
                 
-                if (Score >= Game1.Goal)
-                {
-                    Game1.TextColor = Color.Gold;
-                    Game1.Goal += 500;
-
-                    if (Game1.TextTimer >= 1f)
-                    {
-                        Game1.TextTimer = 0f;
-                        Game1.TextColor = Color.White;
-                    }
-                }
             }
 
-            Position += Velocity;
+            Position += Velocity * (float)gameTime.ElapsedGameTime.TotalMilliseconds;
             // Keep Sprite On Screen
             Position.X = MathHelper.Clamp(Position.X, 0, Game1.ScreenWidth - Rectangle.Width);
-            Velocity = Vector2.Zero;
+            Position.Y = MathHelper.Clamp(Position.Y, 0, Game1.ScreenHeight * .5f);
         }
 
         private void Move()
         {
-
-
+            /*
             if (Input.IsKeyPressed(Keys.Space))
             {
-                Velocity.Y = -_texture.Height * (Scale) + -200;
+                Velocity.Y = -1f;
                 HasJumped = true;
             }
 
@@ -70,10 +58,27 @@ namespace TRex.Sprites
                 if (Position.Y >= Game1.ScreenHeight * .5f) { }
                 
                 // gravity crap
-                else {Velocity.Y = 5f;}
+                else {Velocity.Y += .01f;}
                 
             }
+            */
 
+            if (Position.Y >= Game1.ScreenHeight * .5f)
+                HasJumped = false;
+            
+            if (Input.IsKeyPressed(Keys.Space) && !HasJumped)
+            {
+                Velocity.Y = -1f;
+                HasJumped = true;
+                Sounds.PlaySound(SoundTypes.Jump);
+            }
+            
+            if (Input.IsKeyReleased(Keys.Space) && Velocity.Y <= 0)
+            {
+                Velocity.Y *= .5f;
+            }
+
+            Velocity.Y += Gravity;
         }
         
     }

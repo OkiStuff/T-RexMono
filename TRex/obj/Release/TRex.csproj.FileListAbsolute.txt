@@ -21,3 +21,8 @@ C:\Users\coolg\RiderProjects\TRex\TRex\obj\Release\TRex.csproj.CoreCompileInputs
 C:\Users\coolg\RiderProjects\TRex\TRex\obj\Release\TRex.csproj.CopyComplete
 C:\Users\coolg\RiderProjects\TRex\TRex\obj\Release\TRex.exe
 C:\Users\coolg\RiderProjects\TRex\TRex\obj\Release\TRex.pdb
+C:\Users\coolg\RiderProjects\TRex\TRex\bin\DesktopGL\AnyCPU\Release\Content\Sounds\ButtonHover.xnb
+C:\Users\coolg\RiderProjects\TRex\TRex\bin\DesktopGL\AnyCPU\Release\Content\Sounds\Death.xnb
+C:\Users\coolg\RiderProjects\TRex\TRex\bin\DesktopGL\AnyCPU\Release\Content\Sounds\Jump.xnb
+C:\Users\coolg\RiderProjects\TRex\TRex\bin\DesktopGL\AnyCPU\Release\Content\Sounds\Restart.xnb
+C:\Users\coolg\RiderProjects\TRex\TRex\bin\DesktopGL\AnyCPU\Release\Content\Sounds\ScoreBonus.xnb

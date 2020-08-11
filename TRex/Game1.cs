@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using Microsoft.Xna.Framework;
+using Microsoft.Xna.Framework.Audio;
 using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input;
 using TRex.Models;
@@ -31,11 +32,13 @@ namespace TRex
 
         public static float CurSpeed;
         public static int HighScore;
-        
+
+        private bool _hasStarted = false;
         
         public static Color TextColor = Color.White;
-        public static int Goal = 500;
-        public static float TextTimer;
+        public static SoundEffectInstance JumpSound, DeathSound, RestartSound, ScoreBonusSound, ButtonHover;
+        
+        
         
         
         public Game1()
@@ -57,7 +60,6 @@ namespace TRex
             IsMouseVisible = true;
         }
 
-        
         protected override void Initialize()
         {
             // TODO: Add your initialization logic here
@@ -74,11 +76,28 @@ namespace TRex
             _font = Content.Load<SpriteFont>("Font");
             Ground = Content.Load<Texture2D>("Ground");
             
+            JumpSound = Content.Load<SoundEffect>("Sounds/Jump").CreateInstance();
+            JumpSound.Volume = .1f;
+            
+            DeathSound = Content.Load<SoundEffect>("Sounds/Death").CreateInstance();
+            DeathSound.Volume = .5f;
+            
+            RestartSound = Content.Load<SoundEffect>("Sounds/Restart").CreateInstance();
+            RestartSound.Volume = .5f;
+            
+            ScoreBonusSound = Content.Load<SoundEffect>("Sounds/ScoreBonus").CreateInstance();
+            ScoreBonusSound.Volume = .5f;
+            
+            ButtonHover = Content.Load<SoundEffect>("Sounds/ButtonHover").CreateInstance();
+            ButtonHover.Volume = .5f;
+            
             Restart();
         }
 
         private void Restart()
         {
+            if (_hasStarted)
+                Sounds.PlaySound(SoundTypes.Restart);
             //var cactusTexture = Content.Load<Texture2D>("Player");
             var playerTexture = Content.Load<Texture2D>("Player");
             CurSpeed = 5f;
@@ -114,6 +133,14 @@ namespace TRex
        
         protected override void Update(GameTime gameTime)
         {
+            if (Keyboard.GetState().IsKeyDown(Keys.Space) && !_hasStarted)
+            {
+                _hasStarted = true;
+                Sounds.PlaySound(SoundTypes.Restart);
+            }
+
+            if (!_hasStarted)
+                return;
             
             Input.UpdateState();   
 
@@ -121,8 +148,7 @@ namespace TRex
             _timer += (float) gameTime.ElapsedGameTime.TotalSeconds;
             _timerSpeed += (float) gameTime.ElapsedGameTime.TotalSeconds;
             GlobalTimer += (float) gameTime.ElapsedGameTime.TotalSeconds;
-            TextTimer += (float) gameTime.ElapsedGameTime.TotalSeconds;
-            
+
             foreach(var sprite in _sprites)
                 sprite.Update(gameTime, _sprites);
 
@@ -169,6 +195,7 @@ namespace TRex
                     var player = sprite as Player;
                     if (player.HasDied)
                     {
+                        Sounds.PlaySound(SoundTypes.Death);
                         if (HighScore < ((Player)sprite).Score)
                             HighScore = ((Player)sprite).Score;
                         Restart();
@@ -191,10 +218,14 @@ namespace TRex
            
            var fontY = 10;
            var i = 0;
+           
+           if (!_hasStarted)
+               spriteBatch.DrawString(_font, string.Format("Press space to start!"), 
+                   new Vector2(Game1.ScreenHeight * .5f + 120, fontY + 30), TextColor);
 
            foreach (var sprite in _sprites)
            {
-               if (sprite is Player)
+               if (sprite is Player && _hasStarted)
                {
                    spriteBatch.DrawString(_font, string.Format("Score: {0}", ((Player)sprite).Score), 
                        new Vector2(1020, fontY += 20), TextColor);

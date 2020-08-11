@@ -44,9 +44,11 @@
   <ItemGroup>
     <Compile Include="Game1.cs" />
     <Compile Include="Models\Input.cs" />
+    <Compile Include="Models\Sounds.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Sprites\Cactus.cs" />
+    <Compile Include="Sprites\Cloud.cs" />
     <Compile Include="Sprites\Player.cs" />
     <Compile Include="Sprites\Sprite.cs" />
   </ItemGroup>
