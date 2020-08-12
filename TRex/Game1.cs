@@ -88,7 +88,7 @@ namespace TRex
         
         private void UpdateWindowTitle()
         {
-            Window.Title = string.Format("Google Dinosaur Game By Epic Boi -- (Version v1.0) -- High Score: {0}", HighScore);
+            Window.Title = string.Format("Google Dinosaur Game By Epic Boi -- (Version v2.0) -- High Score: {0}", HighScore);
         }
         
         /*
