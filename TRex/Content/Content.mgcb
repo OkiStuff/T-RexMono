@@ -32,6 +32,18 @@
 /processorParam:TextureFormat=Color
 /build:Cactus.png
 
+#begin Cloud.png
+/importer:TextureImporter
+/processor:TextureProcessor
+/processorParam:ColorKeyColor=255,0,255,255
+/processorParam:ColorKeyEnabled=True
+/processorParam:GenerateMipmaps=False
+/processorParam:PremultiplyAlpha=True
+/processorParam:ResizeToPowerOfTwo=False
+/processorParam:MakeSquare=False
+/processorParam:TextureFormat=Color
+/build:Cloud.png
+
 #begin Dinasaur.png
 /importer:TextureImporter
 /processor:TextureProcessor
@@ -43,6 +55,30 @@
 /processorParam:MakeSquare=False
 /processorParam:TextureFormat=Color
 /build:Dinasaur.png;Player.png
+
+#begin Dinasaur2.png
+/importer:TextureImporter
+/processor:TextureProcessor
+/processorParam:ColorKeyColor=255,0,255,255
+/processorParam:ColorKeyEnabled=True
+/processorParam:GenerateMipmaps=False
+/processorParam:PremultiplyAlpha=True
+/processorParam:ResizeToPowerOfTwo=False
+/processorParam:MakeSquare=False
+/processorParam:TextureFormat=Color
+/build:Dinasaur2.png;Dino2.png
+
+#begin Dinasaur3.png
+/importer:TextureImporter
+/processor:TextureProcessor
+/processorParam:ColorKeyColor=255,0,255,255
+/processorParam:ColorKeyEnabled=True
+/processorParam:GenerateMipmaps=False
+/processorParam:PremultiplyAlpha=True
+/processorParam:ResizeToPowerOfTwo=False
+/processorParam:MakeSquare=False
+/processorParam:TextureFormat=Color
+/build:Dinasaur3.png;Dino3.png
 
 #begin Font.spritefont
 /importer:FontDescriptionImporter
@@ -62,18 +98,6 @@
 /processorParam:MakeSquare=False
 /processorParam:TextureFormat=Color
 /build:Ground.png
-
-#begin Mouse.png
-/importer:TextureImporter
-/processor:TextureProcessor
-/processorParam:ColorKeyColor=255,0,255,255
-/processorParam:ColorKeyEnabled=True
-/processorParam:GenerateMipmaps=False
-/processorParam:PremultiplyAlpha=True
-/processorParam:ResizeToPowerOfTwo=False
-/processorParam:MakeSquare=False
-/processorParam:TextureFormat=Color
-/build:Mouse.png
 
 #begin Sounds/ButtonHover.wav
 /importer:WavImporter

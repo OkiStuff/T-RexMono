@@ -6,10 +6,12 @@
   <SourceFiles>
     <File>C:/Users/coolg/RiderProjects/TRex/TRex/Content/big.spritefont</File>
     <File>C:/Users/coolg/RiderProjects/TRex/TRex/Content/Cactus.png</File>
+    <File>C:/Users/coolg/RiderProjects/TRex/TRex/Content/Cloud.png</File>
     <File>C:/Users/coolg/RiderProjects/TRex/TRex/Content/Dinasaur.png</File>
+    <File>C:/Users/coolg/RiderProjects/TRex/TRex/Content/Dinasaur2.png</File>
+    <File>C:/Users/coolg/RiderProjects/TRex/TRex/Content/Dinasaur3.png</File>
     <File>C:/Users/coolg/RiderProjects/TRex/TRex/Content/Font.spritefont</File>
     <File>C:/Users/coolg/RiderProjects/TRex/TRex/Content/Ground.png</File>
-    <File>C:/Users/coolg/RiderProjects/TRex/TRex/Content/Mouse.png</File>
     <File>C:/Users/coolg/RiderProjects/TRex/TRex/Content/Sounds/ButtonHover.wav</File>
     <File>C:/Users/coolg/RiderProjects/TRex/TRex/Content/Sounds/Death.wav</File>
     <File>C:/Users/coolg/RiderProjects/TRex/TRex/Content/Sounds/Jump.wav</File>
@@ -20,8 +22,10 @@
   <DestFiles>
     <File xsi:nil="true" />
     <File xsi:nil="true" />
-    <File>Player.png</File>
     <File xsi:nil="true" />
+    <File>Player.png</File>
+    <File>Dino2.png</File>
+    <File>Dino3.png</File>
     <File xsi:nil="true" />
     <File xsi:nil="true" />
     <File xsi:nil="true" />

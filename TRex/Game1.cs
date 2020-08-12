@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Xml;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Audio;
+using Microsoft.Xna.Framework.Content;
 using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input;
 using TRex.Models;
@@ -26,11 +27,14 @@ namespace TRex
         private SpriteFont _font;
         private SpriteFont _bigFont;
         private Texture2D Ground;
+        private Texture2D Cloud;
         
         private List<Sprite> _sprites;
+        private List<Cloud> _clouds;
         private float _timer;
         public static float GlobalTimer;
         private float _timerSpeed;
+        private float _timerCloud;
 
         public static float CurSpeed;
         public static int HighScore;
@@ -41,6 +45,11 @@ namespace TRex
         public static SoundEffectInstance JumpSound, DeathSound, RestartSound, ScoreBonusSound, ButtonHover, BGMusic;
         private int WidthSettings;
         private int HeightSettings;
+
+        public static float AnimationTimer;
+        public static Texture2D playerTexture;
+        
+        
         
         
         
@@ -81,7 +90,13 @@ namespace TRex
         {
             Window.Title = string.Format("Google Dinosaur Game By Epic Boi -- (Version v1.0) -- High Score: {0}", HighScore);
         }
-
+        
+        /*
+        public Texture2D LoadTexture(string texture)
+        {
+            return Content.Load<Texture2D>(texture);
+        }
+        */
 
         protected override void LoadContent()
         {
@@ -93,6 +108,8 @@ namespace TRex
             
             _font = Content.Load<SpriteFont>("Font");
             Ground = Content.Load<Texture2D>("Ground");
+            Cloud = Content.Load<Texture2D>("Cloud");
+            playerTexture = Content.Load<Texture2D>("Player");
             
             JumpSound = Content.Load<SoundEffect>("Sounds/Jump").CreateInstance();
             JumpSound.Volume = .1f;
@@ -123,29 +140,19 @@ namespace TRex
             if (_hasStarted)
                 Sounds.PlaySound(SoundTypes.Restart);
             //var cactusTexture = Content.Load<Texture2D>("Player");
-            var playerTexture = Content.Load<Texture2D>("Player");
             CurSpeed = 5f;
-            
+
             _sprites = new List<Sprite>()
             {
                 new Player(playerTexture)
                 {
-                    Position = new Vector2(100,Game1.ScreenHeight * .5f),
+                    Position = new Vector2(100, Game1.ScreenHeight * .5f),
                     Color = TextColor,
                     Speed = CurSpeed,
                 },
-                
-                //new Cactus(Content.Load<Texture2D>("Cactus"))
-                //{
-                //    
-                //    Position = new Vector2(1000, Game1.ScreenHeight * .5f),
-                //    Color = Color.Red,
-                //    Speed = 5f,
-                //}
             };
-            
-            
-            
+
+            _clouds = new List<Cloud>();
         }
 
 
@@ -159,10 +166,12 @@ namespace TRex
         {
             Input.UpdateState();
             
-            // timer
+            // Timers
             _timer += (float) gameTime.ElapsedGameTime.TotalSeconds;
             _timerSpeed += (float) gameTime.ElapsedGameTime.TotalSeconds;
             GlobalTimer += (float) gameTime.ElapsedGameTime.TotalSeconds;
+            _timerCloud += (float) gameTime.ElapsedGameTime.TotalSeconds;
+            AnimationTimer += 1f;
             
             if (Input.IsKeyReleased(Keys.Space) && !_hasStarted && _timer >= 0.25f)
             {
@@ -175,12 +184,11 @@ namespace TRex
             if (!_hasStarted)
                 return;
             
-            
-
-            
-
             foreach(var sprite in _sprites)
                 sprite.Update(gameTime, _sprites);
+            
+            foreach (var cloud in _clouds)
+                cloud.Update(gameTime, _clouds);
 
             
             if (_timer >= Random.Next(0,150))
@@ -190,7 +198,12 @@ namespace TRex
                 _sprites.Add(
                     new Cactus(Content.Load<Texture2D>("Cactus"))
                 );
-
+            }
+            
+            if (_timerCloud >= Random.Next(0,150))
+            {
+                _timerCloud = 0;
+                _clouds.Add(new Cloud(Cloud));
             }
 
             if (_timerSpeed >= 5f)
@@ -198,6 +211,7 @@ namespace TRex
                 _timerSpeed = 0;
                 CurSpeed += 1f;
             }
+            
 
 
             PostUpdate();
@@ -236,6 +250,8 @@ namespace TRex
                         _timer = 0f;
                         _timerSpeed = 0f;
                         GlobalTimer = 0f;
+                        _timerCloud = 0f;
+                        AnimationTimer = 0f;
                         
                         BGMusic.Volume = .1f;
                         _hasStarted = false;
@@ -252,17 +268,23 @@ namespace TRex
 
            spriteBatch.Begin(SpriteSortMode.Deferred, BlendState.AlphaBlend, SamplerState.PointClamp, DepthStencilState.Default, RasterizerState.CullNone);
            
+           
+           foreach (var cloud in _clouds)
+               cloud.Draw(spriteBatch);
+           
            foreach(var sprite in _sprites)
                sprite.Draw(spriteBatch);
            
            spriteBatch.Draw(Ground, new Vector2(0, Game1.ScreenHeight * .5f + 100f), null, Color.White, 0f, Vector2.Zero, 2f, SpriteEffects.None, 0f);
+
+           
            
            var fontY = 10;
            var i = 0;
 
            if (!_hasStarted)
                spriteBatch.DrawString(_bigFont, string.Format("Jump to start!"),
-                   new Vector2(Game1.ScreenHeight * .5f, Game1.ScreenHeight * .5f - 100), TextColor);//,0f, Vector2.Zero, 2f, SpriteEffects.None, 0f);
+                   new Vector2(Game1.ScreenHeight * .5f + 20, Game1.ScreenHeight * .5f - 100), TextColor);//,0f, Vector2.Zero, 2f, SpriteEffects.None, 0f);
 
            foreach (var sprite in _sprites)
            {

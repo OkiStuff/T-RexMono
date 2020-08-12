@@ -1,13 +1,15 @@
 Source File,Dest File,Processor Type,Content Type,Source File Size,Dest File Size,Build Seconds
-"C:/Users/coolg/RiderProjects/TRex/TRex/Content/big.spritefont","C:/Users/coolg/RiderProjects/TRex/TRex/Content/bin/DesktopGL/big.xnb","FontDescriptionProcessor","SpriteFontContent",2017,136209,0.2030642
-"C:/Users/coolg/RiderProjects/TRex/TRex/Content/Cactus.png","C:/Users/coolg/RiderProjects/TRex/TRex/Content/bin/DesktopGL/Cactus.xnb","TextureProcessor","Texture2DContent",327,5085,0.0099745
-"C:/Users/coolg/RiderProjects/TRex/TRex/Content/Dinasaur.png","C:/Users/coolg/RiderProjects/TRex/TRex/Content/bin/DesktopGL/Player.xnb","TextureProcessor","Texture2DContent",382,8357,0.002022
-"C:/Users/coolg/RiderProjects/TRex/TRex/Content/Font.spritefont","C:/Users/coolg/RiderProjects/TRex/TRex/Content/bin/DesktopGL/Font.xnb","FontDescriptionProcessor","SpriteFontContent",2014,37905,0.0175857
-"C:/Users/coolg/RiderProjects/TRex/TRex/Content/Ground.png","C:/Users/coolg/RiderProjects/TRex/TRex/Content/bin/DesktopGL/Ground.xnb","TextureProcessor","Texture2DContent",2502,28533,0.0013354
-"C:/Users/coolg/RiderProjects/TRex/TRex/Content/Mouse.png","C:/Users/coolg/RiderProjects/TRex/TRex/Content/bin/DesktopGL/Mouse.xnb","TextureProcessor","Texture2DContent",1887,418693,0.0059841
-"C:/Users/coolg/RiderProjects/TRex/TRex/Content/Sounds/ButtonHover.wav","C:/Users/coolg/RiderProjects/TRex/TRex/Content/bin/DesktopGL/Sounds/ButtonHover.xnb","SoundEffectProcessor","SoundEffectContent",23720,23781,0.0997331
-"C:/Users/coolg/RiderProjects/TRex/TRex/Content/Sounds/Death.wav","C:/Users/coolg/RiderProjects/TRex/TRex/Content/bin/DesktopGL/Sounds/Death.xnb","SoundEffectProcessor","SoundEffectContent",17008,17069,0.0847912
-"C:/Users/coolg/RiderProjects/TRex/TRex/Content/Sounds/Jump.wav","C:/Users/coolg/RiderProjects/TRex/TRex/Content/bin/DesktopGL/Sounds/Jump.xnb","SoundEffectProcessor","SoundEffectContent",21758,21819,0.0847932
-"C:/Users/coolg/RiderProjects/TRex/TRex/Content/Sounds/Restart.wav","C:/Users/coolg/RiderProjects/TRex/TRex/Content/bin/DesktopGL/Sounds/Restart.xnb","SoundEffectProcessor","SoundEffectContent",11132,11193,0.0831416
-"C:/Users/coolg/RiderProjects/TRex/TRex/Content/Sounds/ScoreBonus.wav","C:/Users/coolg/RiderProjects/TRex/TRex/Content/bin/DesktopGL/Sounds/ScoreBonus.xnb","SoundEffectProcessor","SoundEffectContent",22130,22191,0.0868525
-"C:/Users/coolg/RiderProjects/TRex/TRex/Content/Sounds/Soft_Piano.wav","C:/Users/coolg/RiderProjects/TRex/TRex/Content/bin/DesktopGL/Sounds/Soft_Piano.xnb","SoundEffectProcessor","SoundEffectContent",11658362,11658345,0.1865047
+"C:/Users/coolg/RiderProjects/TRex/TRex/Content/big.spritefont","C:/Users/coolg/RiderProjects/TRex/TRex/Content/bin/DesktopGL/big.xnb","FontDescriptionProcessor","SpriteFontContent",2017,136209,0.2034842
+"C:/Users/coolg/RiderProjects/TRex/TRex/Content/Cactus.png","C:/Users/coolg/RiderProjects/TRex/TRex/Content/bin/DesktopGL/Cactus.xnb","TextureProcessor","Texture2DContent",327,5085,0.0109704
+"C:/Users/coolg/RiderProjects/TRex/TRex/Content/Cloud.png","C:/Users/coolg/RiderProjects/TRex/TRex/Content/bin/DesktopGL/Cloud.xnb","TextureProcessor","Texture2DContent",232,2477,0.0019953
+"C:/Users/coolg/RiderProjects/TRex/TRex/Content/Dinasaur.png","C:/Users/coolg/RiderProjects/TRex/TRex/Content/bin/DesktopGL/Player.xnb","TextureProcessor","Texture2DContent",382,8357,0.0019939
+"C:/Users/coolg/RiderProjects/TRex/TRex/Content/Dinasaur2.png","C:/Users/coolg/RiderProjects/TRex/TRex/Content/bin/DesktopGL/Dino2.xnb","TextureProcessor","Texture2DContent",360,8357,0.0019946
+"C:/Users/coolg/RiderProjects/TRex/TRex/Content/Dinasaur3.png","C:/Users/coolg/RiderProjects/TRex/TRex/Content/bin/DesktopGL/Dino3.xnb","TextureProcessor","Texture2DContent",365,8357,0.0009981
+"C:/Users/coolg/RiderProjects/TRex/TRex/Content/Font.spritefont","C:/Users/coolg/RiderProjects/TRex/TRex/Content/bin/DesktopGL/Font.xnb","FontDescriptionProcessor","SpriteFontContent",2014,37905,0.0159569
+"C:/Users/coolg/RiderProjects/TRex/TRex/Content/Ground.png","C:/Users/coolg/RiderProjects/TRex/TRex/Content/bin/DesktopGL/Ground.xnb","TextureProcessor","Texture2DContent",2502,28533,0.0019955
+"C:/Users/coolg/RiderProjects/TRex/TRex/Content/Sounds/ButtonHover.wav","C:/Users/coolg/RiderProjects/TRex/TRex/Content/bin/DesktopGL/Sounds/ButtonHover.xnb","SoundEffectProcessor","SoundEffectContent",23720,23781,0.0981452
+"C:/Users/coolg/RiderProjects/TRex/TRex/Content/Sounds/Death.wav","C:/Users/coolg/RiderProjects/TRex/TRex/Content/bin/DesktopGL/Sounds/Death.xnb","SoundEffectProcessor","SoundEffectContent",17008,17069,0.0847735
+"C:/Users/coolg/RiderProjects/TRex/TRex/Content/Sounds/Jump.wav","C:/Users/coolg/RiderProjects/TRex/TRex/Content/bin/DesktopGL/Sounds/Jump.xnb","SoundEffectProcessor","SoundEffectContent",21758,21819,0.0834627
+"C:/Users/coolg/RiderProjects/TRex/TRex/Content/Sounds/Restart.wav","C:/Users/coolg/RiderProjects/TRex/TRex/Content/bin/DesktopGL/Sounds/Restart.xnb","SoundEffectProcessor","SoundEffectContent",11132,11193,0.0827818
+"C:/Users/coolg/RiderProjects/TRex/TRex/Content/Sounds/ScoreBonus.wav","C:/Users/coolg/RiderProjects/TRex/TRex/Content/bin/DesktopGL/Sounds/ScoreBonus.xnb","SoundEffectProcessor","SoundEffectContent",22130,22191,0.0827751
+"C:/Users/coolg/RiderProjects/TRex/TRex/Content/Sounds/Soft_Piano.wav","C:/Users/coolg/RiderProjects/TRex/TRex/Content/bin/DesktopGL/Sounds/Soft_Piano.xnb","SoundEffectProcessor","SoundEffectContent",11658362,11658345,0.1894932

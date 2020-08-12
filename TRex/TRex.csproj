@@ -7,7 +7,7 @@
     <ProductVersion>8.0.30703</ProductVersion>
     <SchemaVersion>2.0</SchemaVersion>
     <ProjectGuid>1472a83c-23ab-4568-ba36-a1f995973f37</ProjectGuid>
-    <OutputType>WinExe</OutputType>
+    <OutputType>Exe</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>TRex</RootNamespace>
     <AssemblyName>TRex</AssemblyName>
@@ -43,6 +43,7 @@
   </PropertyGroup>
   <ItemGroup>
     <Compile Include="Game1.cs" />
+    <Compile Include="Models\Animation.cs" />
     <Compile Include="Models\Input.cs" />
     <Compile Include="Models\Sounds.cs" />
     <Compile Include="Program.cs" />
